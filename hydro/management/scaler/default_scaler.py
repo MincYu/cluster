@@ -15,6 +15,7 @@
 import logging
 import random
 import zmq
+import os
 
 from hydro.management.util import (
     get_executor_pin_address,
@@ -33,6 +34,7 @@ class DefaultScaler(BaseScaler):
         self.add_socket = add_socket
         self.remove_socket = remove_socket
         self.pin_accept_socket = pin_accept_socket
+        self.enable_scaling = os.environ['ENABLE_SCALING'] == '0'
 
     def replicate_function(self, fname, num_replicas, function_locations,
                            cpu_executors, gpu_executors):
@@ -95,8 +97,14 @@ class DefaultScaler(BaseScaler):
 
     def add_vms(self, kind, count):
         msg = kind + ':' + str(count)
-        self.add_socket.send_string(msg)
+        if self.enable_scaling:
+            self.add_socket.send_string(msg)
+        else:
+            logging.info('Disable scaling (add) %s' % msg)
 
     def remove_vms(self, kind, ip):
         msg = kind + ':' + ip
-        self.remove_socket.send_string(msg)
+        if self.enable_scaling:
+            self.remove_socket.send_string(msg)
+        else:
+            logging.info('Disable scaling (remove) %s' % msg)

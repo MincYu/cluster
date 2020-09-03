@@ -117,8 +117,6 @@ def run(self_ip):
     # Tracks how long each DAG request spends in the system, end to end.
     dag_runtimes = {}
 
-    enable_scaling = os.environ['ENABLE_SCALING'] == '0'
-
     start = time.time()
     while True:
         socks = dict(poller.poll(timeout=1000))
@@ -128,13 +126,10 @@ def run(self_ip):
             msg = churn_pull_socket.recv_string()
             args = msg.split(':')
 
-            if enable_scaling:
-                if args[0] == 'add':
-                    scaler.add_vms(args[2], args[1])
-                elif args[0] == 'remove':
-                    scaler.remove_vms(args[2], args[1])
-            else:
-                logging.info('Disable scaling %s' % args)
+            if args[0] == 'add':
+                scaler.add_vms(args[2], args[1])
+            elif args[0] == 'remove':
+                scaler.remove_vms(args[2], args[1])
 
         if (restart_pull_socket in socks and socks[restart_pull_socket] ==
                 zmq.POLLIN):
