@@ -76,7 +76,7 @@ WORKDIR /hydro
 # Clone all the Hydro project repos here.
 RUN git clone --recurse-submodules https://github.com/hydro-project/anna
 RUN git clone --recurse-submodules https://github.com/hydro-project/anna-cache
-RUN git clone --recurse-submodules https://github.com/hydro-project/cloudburst
+RUN git clone --recurse-submodules https://github.com/MincYu/cloudburst
 RUN git clone --recurse-submodules https://github.com/hydro-project/cluster
 
 WORKDIR /

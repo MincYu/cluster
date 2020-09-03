@@ -35,7 +35,7 @@ SSH_KEY=$2
 
 echo "Creating cluster object..."
 kops create cluster \
-  --master-size c4.large \
+  --master-size c5.large \
   --zones us-east-1a \
   --ssh-public-key ${SSH_KEY}.pub \
   --networking kubenet \

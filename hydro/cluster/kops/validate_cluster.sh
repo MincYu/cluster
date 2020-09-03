@@ -18,6 +18,7 @@ echo "Validating cluster..."
 kops validate cluster > /dev/null 2>&1
 while [ $? -ne 0 ]
 do
+  sleep 10
   kops validate cluster > /dev/null 2>&1
 done
 
