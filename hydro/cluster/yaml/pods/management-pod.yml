@@ -41,6 +41,6 @@ spec:
     - name: ANNA_REPO_BRANCH
       value: master
     - name: ENABLE_SCALING
-      value: 0
+      value: "0"
   nodeSelector:
     role: general
