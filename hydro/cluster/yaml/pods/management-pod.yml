@@ -22,7 +22,7 @@ spec:
   restartPolicy: Never
   containers:
   - name: management-container
-    image: hydroproject/management
+    image: cheneyyu/test_ma
     env:
     - name: AWS_ACCESS_KEY_ID
       value: ACCESS_KEY_ID_DUMMY

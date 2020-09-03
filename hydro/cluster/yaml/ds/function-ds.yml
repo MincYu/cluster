@@ -42,7 +42,7 @@ spec:
           limits:
             cpu: "1"
             memory: "1G"
-        image: hydroproject/cloudburst
+        image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
         - name: ROUTE_ADDR
@@ -71,7 +71,7 @@ spec:
       #     limits:
       #       cpu: "2"
       #       memory: "2G"
-      #   image: hydroproject/cloudburst
+      #   image: cheneyyu/test_cb
       #   imagePullPolicy: Always
       #   env:
       #   - name: ROUTE_ADDR
@@ -96,7 +96,7 @@ spec:
       #   - mountPath: /requests
       #     name: ipc
       # - name: function-3
-      #   image: hydroproject/cloudburst
+      #   image: cheneyyu/test_cb
       #   imagePullPolicy: Always
       #   resources:
       #     limits:
