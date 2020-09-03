@@ -49,7 +49,7 @@ if [[ -z "$REPO_BRANCH" ]]; then
 fi
 
 git remote remove origin
-git remote add origin https://github.com/$REPO_ORG/cluster
+git remote add origin https://github.com/MincYu/cluster
 while ! (git fetch -p origin)
 do
   echo "git fetch failed, retrying"
