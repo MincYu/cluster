@@ -76,8 +76,11 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
         # first time -- i.e., when this is called from create_cluster. After that,
         # we can basically ignore this because the DaemonSet will take care of
         # adding pods to created nodes.
+        yml_name = kind
+        if kind == 'function' and 'USE_LOCAL_CACHE' in os.environ and os.environ['USE_LOCAL_CACHE'] != '0':
+            yml_name = 'function-remote'
         if create:
-            fname = 'yaml/ds/%s-ds.yml' % kind
+            fname = 'yaml/ds/%s-ds.yml' % yml_name
             yml = util.load_yaml(fname, prefix)
 
             for container in yml['spec']['template']['spec']['containers']:

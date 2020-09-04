@@ -42,5 +42,7 @@ spec:
       value: master
     - name: ENABLE_SCALING
       value: "1"
+    - name: USE_LOCAL_CACHE
+      value: USE_LOCAL_CACHE_DUMMY
   nodeSelector:
     role: general

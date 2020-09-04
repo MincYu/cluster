@@ -48,6 +48,7 @@ def create_cluster(mem_count, ebs_count, func_count, gpu_count, sched_count,
     util.replace_yaml_val(env, 'AWS_SECRET_ACCESS_KEY', aws_key)
     util.replace_yaml_val(env, 'KOPS_STATE_STORE', kops_bucket)
     util.replace_yaml_val(env, 'HYDRO_CLUSTER_NAME', cluster_name)
+    util.replace_yaml_val(env, 'USE_LOCAL_CACHE', os.environ['USE_LOCAL_CACHE'])
 
     client.create_namespaced_pod(namespace=util.NAMESPACE, body=management_spec)
 
@@ -204,6 +205,8 @@ if __name__ == '__main__':
     parser.add_argument('-b', '--benchmark', nargs='?', type=int, metavar='B',
                         help='The number of benchmark nodes in the cluster ' +
                         '(optional)', dest='benchmark', default=0)
+    parser.add_argument('-c', '--cache', nargs=1, type=bool,
+                        help='Whether to use local cache', dest='cache', default=True)
     parser.add_argument('--conf', nargs='?', type=str,
                         help='The configuration file to start the cluster with'
                         + ' (optional)', dest='conf',
@@ -221,6 +224,11 @@ if __name__ == '__main__':
     aws_key = util.check_or_get_env_arg('AWS_SECRET_ACCESS_KEY')
 
     args = parser.parse_args()
+
+    if args.cache:
+        os.environ['USE_LOCAL_CACHE'] = '0'
+    else:
+        os.environ['USE_LOCAL_CACHE'] = '1'
 
     create_cluster(args.memory[0], args.ebs, args.function[0], args.gpu,
                    args.scheduler[0], args.routing[0], args.benchmark,
