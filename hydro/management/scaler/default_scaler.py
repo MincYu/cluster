@@ -61,6 +61,9 @@ class DefaultScaler(BaseScaler):
             if len(candidate_nodes) == 0:
                 continue
 
+            if not self.enable_scaling:
+                continue
+
             ip, tid = random.sample(candidate_nodes, 1)[0]
             send_message(self.context, msg.SerializeToString(),
                          get_executor_pin_address(ip, tid))
@@ -87,7 +90,8 @@ class DefaultScaler(BaseScaler):
     def dereplicate_function(self, fname, num_replicas, function_locations):
         if num_replicas < 2:
             return
-
+        if not self.enable_scaling:
+            return
         while len(function_locations[fname]) > num_replicas:
             ip, tid = random.sample(function_locations[fname], 1)[0]
             send_message(self.context, fname,
