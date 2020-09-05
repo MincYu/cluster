@@ -195,11 +195,19 @@ class DefaultHydroPolicy(BaseHydroPolicy):
                               + ' Replicating its functions.') % (status.ip,
                                                                   status.tid))
 
-                executors = set(executor_statuses.keys())
+                # executors = set(executor_statuses.keys())
+                cpu_executors = set()
+                gpu_executors = set()
+                for key in executor_statuses:
+                    status = executor_statuses[key]
+                    if status.type == CPU:
+                        cpu_executors.add(key)
+                    else:
+                        gpu_executors.add(key)
                 for fname in status.functions:
                     self.scaler.replicate_function(fname, 2,
                                                    self.function_locations,
-                                                   executors)
+                                                   cpu_executors, gpu_executors)
 
         # We only decide to kill nodes if they are underutilized and if there
         # are at least 5 executors in the system -- we never scale down past
