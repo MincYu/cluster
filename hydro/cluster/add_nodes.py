@@ -78,6 +78,7 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
         # adding pods to created nodes.
         yml_name = kind
         if kind == 'function' and 'USE_LOCAL_CACHE' in os.environ and os.environ['USE_LOCAL_CACHE'] != '0':
+            print('Use function-remote yml')
             yml_name = 'function-remote'
         if create:
             fname = 'yaml/ds/%s-ds.yml' % yml_name

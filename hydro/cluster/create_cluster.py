@@ -50,6 +50,8 @@ def create_cluster(mem_count, ebs_count, func_count, gpu_count, sched_count,
     util.replace_yaml_val(env, 'HYDRO_CLUSTER_NAME', cluster_name)
     util.replace_yaml_val(env, 'USE_LOCAL_CACHE', os.environ['USE_LOCAL_CACHE'])
 
+    print('Set USE_LOCAL_CACHE to %s' % os.environ['USE_LOCAL_CACHE'])
+
     client.create_namespaced_pod(namespace=util.NAMESPACE, body=management_spec)
 
     # Waits until the management pod starts to move forward -- we need to do
