@@ -198,6 +198,8 @@ if __name__ == '__main__':
     parser.add_argument('-s', '--scheduler', nargs=1, type=int, metavar='S',
                         help='The number of scheduler nodes to start with ' +
                         '(required)', dest='scheduler', required=True)
+    parser.add_argument('-c', '--cache', nargs=1, type=int,
+                        help='Whether to use local cache', dest='cache', default=0)
     parser.add_argument('-g', '--gpu', nargs='?', type=int, metavar='G',
                         help='The number of GPU nodes to start with ' +
                         '(optional)', dest='gpu', default=0)
@@ -207,8 +209,6 @@ if __name__ == '__main__':
     parser.add_argument('-b', '--benchmark', nargs='?', type=int, metavar='B',
                         help='The number of benchmark nodes in the cluster ' +
                         '(optional)', dest='benchmark', default=0)
-    parser.add_argument('-c', '--cache', nargs=1, type=bool,
-                        help='Whether to use local cache', dest='cache', default=True)
     parser.add_argument('--conf', nargs='?', type=str,
                         help='The configuration file to start the cluster with'
                         + ' (optional)', dest='conf',
@@ -226,10 +226,10 @@ if __name__ == '__main__':
     aws_key = util.check_or_get_env_arg('AWS_SECRET_ACCESS_KEY')
 
     args = parser.parse_args()
-
-    if args.cache:
+    if args.cache[0] == 0:
         os.environ['USE_LOCAL_CACHE'] = '0'
     else:
+        print('Use remote anna')
         os.environ['USE_LOCAL_CACHE'] = '1'
 
     create_cluster(args.memory[0], args.ebs, args.function[0], args.gpu,
