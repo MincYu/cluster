@@ -198,7 +198,7 @@ if __name__ == '__main__':
     parser.add_argument('-s', '--scheduler', nargs=1, type=int, metavar='S',
                         help='The number of scheduler nodes to start with ' +
                         '(required)', dest='scheduler', required=True)
-    parser.add_argument('-c', '--cache', nargs=1, type=int,
+    parser.add_argument('-c', '--cache', type=int,
                         help='Whether to use local cache', dest='cache', default=0)
     parser.add_argument('-g', '--gpu', nargs='?', type=int, metavar='G',
                         help='The number of GPU nodes to start with ' +
@@ -226,7 +226,7 @@ if __name__ == '__main__':
     aws_key = util.check_or_get_env_arg('AWS_SECRET_ACCESS_KEY')
 
     args = parser.parse_args()
-    if args.cache[0] == 0:
+    if args.cache == 0:
         os.environ['USE_LOCAL_CACHE'] = '0'
     else:
         print('Use remote anna')
