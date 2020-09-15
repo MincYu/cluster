@@ -41,7 +41,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "1G"
+            memory: "2G"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
@@ -68,35 +68,35 @@ spec:
         volumeMounts:
         - mountPath: /requests
           name: ipc
-      # - name: function-2
-      #   resources:
-      #     limits:
-      #       cpu: "2"
-      #       memory: "2G"
-      #   image: cheneyyu/test_cb
-      #   imagePullPolicy: Always
-      #   env:
-      #   - name: ROUTE_ADDR
-      #     value: ROUTE_ADDR_DUMMY
-      #   - name: MGMT_IP
-      #     value: MGMT_IP_DUMMY
-      #   - name: SCHED_IPS
-      #     value: SCHED_IPS_DUMMY
-      #   - name: THREAD_ID
-      #     value: "1"
-      #   - name: ROLE
-      #     value: executor
-      #   - name: REPO_ORG
-      #     value: hydro-project
-      #   - name: REPO_BRANCH
-      #     value: master
-      #   - name: ANNA_REPO_ORG
-      #     value: hydro-project
-      #   - name: ANNA_REPO_BRANCH
-      #     value: master
-      #   volumeMounts:
-      #   - mountPath: /requests
-      #     name: ipc
+      - name: function-2
+        resources:
+          limits:
+            cpu: "1"
+            memory: "2G"
+        image: cheneyyu/test_cb
+        imagePullPolicy: Always
+        env:
+        - name: ROUTE_ADDR
+          value: ROUTE_ADDR_DUMMY
+        - name: MGMT_IP
+          value: MGMT_IP_DUMMY
+        - name: SCHED_IPS
+          value: SCHED_IPS_DUMMY
+        - name: THREAD_ID
+          value: "1"
+        - name: ROLE
+          value: executor
+        - name: REPO_ORG
+          value: hydro-project
+        - name: REPO_BRANCH
+          value: master
+        - name: ANNA_REPO_ORG
+          value: hydro-project
+        - name: ANNA_REPO_BRANCH
+          value: master
+        volumeMounts:
+        - mountPath: /requests
+          name: ipc
       # - name: function-3
       #   image: cheneyyu/test_cb
       #   imagePullPolicy: Always
