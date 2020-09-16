@@ -41,7 +41,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "2G"
+            memory: "3G"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
@@ -72,7 +72,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "2G"
+            memory: "3G"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
