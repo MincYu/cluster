@@ -41,7 +41,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "3G"
+            memory: "4G"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
@@ -70,7 +70,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "3G"
+            memory: "4G"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
@@ -130,7 +130,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "8G"
+            memory: "6G"
         env:
         - name: ROUTE_ADDR
           value: ROUTE_ADDR_DUMMY
