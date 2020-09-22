@@ -41,7 +41,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "6G"
+            memory: "4G"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
@@ -63,6 +63,8 @@ spec:
           value: hydro-project
         - name: ANNA_REPO_BRANCH
           value: master
+        - name: FORCE_REMOTE
+          value: FORCE_REMOTE_DUMMY
         volumeMounts:
         - mountPath: /requests
           name: ipc
@@ -70,7 +72,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "6G"
+            memory: "4G"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
@@ -92,6 +94,8 @@ spec:
           value: hydro-project
         - name: ANNA_REPO_BRANCH
           value: master
+        - name: FORCE_REMOTE
+          value: FORCE_REMOTE_DUMMY
         volumeMounts:
         - mountPath: /requests
           name: ipc
@@ -130,7 +134,7 @@ spec:
         resources:
           limits:
             cpu: "1.5"
-            memory: "18G"
+            memory: "6G"
         env:
         - name: ROUTE_ADDR
           value: ROUTE_ADDR_DUMMY
@@ -140,6 +144,8 @@ spec:
           value: hydro-project
         - name: REPO_BRANCH
           value: master
+        - name: REMOTE_PUT
+          value: REMOTE_PUT_DUMMY
         volumeMounts:
         - mountPath: /requests
           name: ipc

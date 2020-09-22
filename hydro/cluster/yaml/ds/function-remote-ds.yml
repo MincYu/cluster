@@ -41,7 +41,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "6G"
+            memory: "4G"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
@@ -64,7 +64,7 @@ spec:
         - name: ANNA_REPO_BRANCH
           value: master
         - name: FORCE_REMOTE
-          value: "0"
+          value: FORCE_REMOTE_DUMMY
         volumeMounts:
         - mountPath: /requests
           name: ipc
@@ -72,7 +72,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "6G"
+            memory: "4G"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
@@ -95,7 +95,7 @@ spec:
         - name: ANNA_REPO_BRANCH
           value: master
         - name: FORCE_REMOTE
-          value: "0"
+          value: FORCE_REMOTE_DUMMY
         volumeMounts:
         - mountPath: /requests
           name: ipc

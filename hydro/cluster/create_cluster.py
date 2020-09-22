@@ -48,9 +48,9 @@ def create_cluster(mem_count, ebs_count, func_count, gpu_count, sched_count,
     util.replace_yaml_val(env, 'AWS_SECRET_ACCESS_KEY', aws_key)
     util.replace_yaml_val(env, 'KOPS_STATE_STORE', kops_bucket)
     util.replace_yaml_val(env, 'HYDRO_CLUSTER_NAME', cluster_name)
-    util.replace_yaml_val(env, 'USE_LOCAL_CACHE', os.environ['USE_LOCAL_CACHE'])
+    util.replace_yaml_val(env, 'REMOTE_ANNA', os.environ['REMOTE_ANNA'])
 
-    print('Set USE_LOCAL_CACHE to %s' % os.environ['USE_LOCAL_CACHE'])
+    print('Set REMOTE_ANNA to %s' % os.environ['REMOTE_ANNA'])
 
     client.create_namespaced_pod(namespace=util.NAMESPACE, body=management_spec)
 
@@ -199,7 +199,7 @@ if __name__ == '__main__':
                         help='The number of scheduler nodes to start with ' +
                         '(required)', dest='scheduler', required=True)
     parser.add_argument('-c', '--cache', type=int,
-                        help='Whether to use local cache', dest='cache', default=0)
+                        help='Whether to use local cache', dest='cache', default=1)
     parser.add_argument('-g', '--gpu', nargs='?', type=int, metavar='G',
                         help='The number of GPU nodes to start with ' +
                         '(optional)', dest='gpu', default=0)
@@ -226,11 +226,8 @@ if __name__ == '__main__':
     aws_key = util.check_or_get_env_arg('AWS_SECRET_ACCESS_KEY')
 
     args = parser.parse_args()
-    if args.cache == 0:
-        os.environ['USE_LOCAL_CACHE'] = '0'
-    else:
-        print('Use remote anna')
-        os.environ['USE_LOCAL_CACHE'] = '1'
+    print(f'remote anna flag {args.cache}')
+    os.environ['REMOTE_ANNA'] = str(args.cache)
 
     create_cluster(args.memory[0], args.ebs, args.function[0], args.gpu,
                    args.scheduler[0], args.routing[0], args.benchmark,

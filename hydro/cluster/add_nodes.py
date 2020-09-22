@@ -77,9 +77,13 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
         # we can basically ignore this because the DaemonSet will take care of
         # adding pods to created nodes.
         yml_name = kind
-        if kind == 'function' and 'USE_LOCAL_CACHE' in os.environ and os.environ['USE_LOCAL_CACHE'] != '0':
+        if kind == 'function' and 'REMOTE_ANNA' in os.environ and os.environ['REMOTE_ANNA'] == '0':
             print('Use function-remote yml')
             yml_name = 'function-remote'
+
+        cache_remote_put_flag = 0
+        if os.environ['REMOTE_ANNA'] == '2':
+            cache_remote_put_flag = 1
         if create:
             fname = 'yaml/ds/%s-ds.yml' % yml_name
             yml = util.load_yaml(fname, prefix)
@@ -94,6 +98,8 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
                 util.replace_yaml_val(env, 'MON_IPS', mon_str)
                 util.replace_yaml_val(env, 'MGMT_IP', management_ip)
                 util.replace_yaml_val(env, 'SEED_IP', seed_ip)
+                util.replace_yaml_val(env, 'FORCE_REMOTE', os.environ['REMOTE_ANNA'])
+                util.replace_yaml_val(env, 'REMOTE_PUT', str(cache_remote_put_flag))
 
             apps_client.create_namespaced_daemon_set(namespace=util.NAMESPACE,
                                                      body=yml)
