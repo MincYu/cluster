@@ -99,6 +99,8 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
                 util.replace_yaml_val(env, 'MON_IPS', mon_str)
                 util.replace_yaml_val(env, 'MGMT_IP', management_ip)
                 util.replace_yaml_val(env, 'SEED_IP', seed_ip)
+                util.replace_yaml_val(env, 'FORCE_REMOTE', os.environ['REMOTE_ANNA'])
+                util.replace_yaml_val(env, 'REMOTE_PUT', str(cache_remote_put_flag))
 
             apps_client.create_namespaced_daemon_set(namespace=util.NAMESPACE,
                                                      body=yml)
@@ -122,7 +124,7 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
         # we do not use external conf
         # kvs_conf_file = os.path.join(os.environ['EPHE_HOME'], 'kvs/conf/conf-base.yml')
         # os.system('cp %s ./config.yml' % kvs_conf_file)
-        
+
         for pname, cname in new_pods:
             if kind != 'function' and kind != 'gpu':
                 util.copy_file_to_pod(client, 'anna-config.yml', pname,

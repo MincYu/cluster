@@ -52,3 +52,4 @@ spec:
           value: master
         - name: POLICY
           value: round-robin
+          # value: locality
