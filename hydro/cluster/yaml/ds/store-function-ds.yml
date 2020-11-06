@@ -1,17 +1,3 @@
-#  Copyright 2019 U.C. Berkeley RISE Lab
-#
-#  Licensed under the Apache License, Version 2.0 (the "License");
-#  you may not use this file except in compliance with the License.
-#  You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-#  Unless required by applicable law or agreed to in writing, software
-#  distributed under the License is distributed on an "AS IS" BASIS,
-#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#  See the License for the specific language governing permissions and
-#  limitations under the License.
-
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -63,8 +49,6 @@ spec:
           value: hydro-project
         - name: ANNA_REPO_BRANCH
           value: master
-        - name: FORCE_REMOTE
-          value: "0"
         volumeMounts:
         - mountPath: /requests
           name: ipc
@@ -126,3 +110,20 @@ spec:
       #   volumeMounts:
       #   - mountPath: /requests
       #     name: ipc
+      - name: local-kvs
+        image: cheneyyu/ephe_kvs
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 1
+            memory: "4G"
+        env:
+        - name: COORD_IPS
+          value: COORD_IPS_DUMMY
+        - name: USE_EXETERNAL_CONF
+          value: "0"
+        - name: FUNC_OR_KVS
+          value: "1"
+        volumeMounts:
+        - mountPath: /requests
+          name: ipc

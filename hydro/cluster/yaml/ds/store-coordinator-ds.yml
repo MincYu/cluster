@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: coordinator-nodes
+  labels: 
+    role: coordinator
+spec:
+  selector:
+    matchLabels:
+      role: coordinator
+  template:
+    metadata:
+      labels:
+        role: coordinator
+    spec:
+      nodeSelector:
+        role: coordinator
+      hostNetwork: true
+      containers:
+      - name: coordinator-container
+        image: cheneyyu/ephe_coord
+        env: 
+        - name: FUNCTION_ADDR
+          value: FUNCTION_ADDR_DUMMY
+        - name: USE_EXETERNAL_CONF
+          value: "0"
+        - name: PLATFORM
+          value: "cloudburst"

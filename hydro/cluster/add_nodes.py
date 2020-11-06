@@ -62,6 +62,11 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
     else:
         seed_ip = ''
 
+    # In storage mode, we also need coordinator ip
+    if os.environ['STORAGE_OR_DEFAULT'] == '0':
+        coord_ips = util.get_pod_ips(client, 'role=coordinator')
+        coord_str = ' '.join(coord_ips)
+
     mon_str = ' '.join(util.get_pod_ips(client, 'role=monitoring'))
     route_str = ' '.join(route_ips)
     sched_str = ' '.join(util.get_pod_ips(client, 'role=scheduler'))
@@ -77,9 +82,8 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
         # we can basically ignore this because the DaemonSet will take care of
         # adding pods to created nodes.
         yml_name = kind
-        if kind == 'function' and 'USE_LOCAL_CACHE' in os.environ and os.environ['USE_LOCAL_CACHE'] != '0':
-            print('Use function-remote yml')
-            yml_name = 'function-remote'
+        if os.environ['STORAGE_OR_DEFAULT'] == '0' and kind in ['coordinator', 'function']:
+            yml_name = 'store-' + kind
         if create:
             fname = 'yaml/ds/%s-ds.yml' % yml_name
             yml = util.load_yaml(fname, prefix)
@@ -87,6 +91,7 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
             for container in yml['spec']['template']['spec']['containers']:
                 env = container['env']
 
+                util.replace_yaml_val(env, 'COORD_IPS', coord_str)
                 util.replace_yaml_val(env, 'ROUTING_IPS', route_str)
                 util.replace_yaml_val(env, 'ROUTE_ADDR', route_addr)
                 util.replace_yaml_val(env, 'SCHED_IPS', sched_str)
@@ -114,6 +119,10 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
         # Copy the KVS config into all recently created pods.
         os.system('cp %s ./anna-config.yml' % cfile)
 
+        # we do not use external conf
+        # kvs_conf_file = os.path.join(os.environ['EPHE_HOME'], 'kvs/conf/conf-base.yml')
+        # os.system('cp %s ./config.yml' % kvs_conf_file)
+        
         for pname, cname in new_pods:
             if kind != 'function' and kind != 'gpu':
                 util.copy_file_to_pod(client, 'anna-config.yml', pname,

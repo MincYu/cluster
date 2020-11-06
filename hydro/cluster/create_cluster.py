@@ -48,9 +48,9 @@ def create_cluster(mem_count, ebs_count, func_count, gpu_count, sched_count,
     util.replace_yaml_val(env, 'AWS_SECRET_ACCESS_KEY', aws_key)
     util.replace_yaml_val(env, 'KOPS_STATE_STORE', kops_bucket)
     util.replace_yaml_val(env, 'HYDRO_CLUSTER_NAME', cluster_name)
-    util.replace_yaml_val(env, 'USE_LOCAL_CACHE', os.environ['USE_LOCAL_CACHE'])
+    util.replace_yaml_val(env, 'STORAGE_OR_DEFAULT', os.environ['STORAGE_OR_DEFAULT'])
 
-    print('Set USE_LOCAL_CACHE to %s' % os.environ['USE_LOCAL_CACHE'])
+    print('Set STORAGE_OR_DEFAULT to %s' % os.environ['STORAGE_OR_DEFAULT'])
 
     client.create_namespaced_pod(namespace=util.NAMESPACE, body=management_spec)
 
@@ -126,6 +126,16 @@ def create_cluster(mem_count, ebs_count, func_count, gpu_count, sched_count,
     batch_add_nodes(client, apps_client, cfile, ['scheduler'], [sched_count],
                     BATCH_SIZE, prefix)
     util.get_pod_ips(client, 'role=scheduler')
+    
+    # When using coordination-supported storage, we need to additionally setup coordinator
+    if os.environ['STORAGE_OR_DEFAULT'] == '0':
+        # TODO support more coordinator
+        coor_count = 1
+        print('Creating %d coordinator nodes...' % (coor_count))
+        batch_add_nodes(client, apps_client, cfile, ['coordinator'], [coor_count], BATCH_SIZE, prefix)
+        coord_ips = util.get_pod_ips(client, 'role=coordinator')
+
+        print(f'Coordinator ips: {coord_ips}')
 
     print('Adding %d function, %d GPU nodes...' % (func_count, gpu_count))
     batch_add_nodes(client, apps_client, cfile, ['function', 'gpu'],
@@ -198,8 +208,8 @@ if __name__ == '__main__':
     parser.add_argument('-s', '--scheduler', nargs=1, type=int, metavar='S',
                         help='The number of scheduler nodes to start with ' +
                         '(required)', dest='scheduler', required=True)
-    parser.add_argument('-c', '--cache', type=int,
-                        help='Whether to use local cache', dest='cache', default=0)
+    parser.add_argument('-c', '--coordination', type=int,
+                        help='Whether to use coordination-supported storage', dest='coordination', default=1)
     parser.add_argument('-g', '--gpu', nargs='?', type=int, metavar='G',
                         help='The number of GPU nodes to start with ' +
                         '(optional)', dest='gpu', default=0)
@@ -226,11 +236,11 @@ if __name__ == '__main__':
     aws_key = util.check_or_get_env_arg('AWS_SECRET_ACCESS_KEY')
 
     args = parser.parse_args()
-    if args.cache == 0:
-        os.environ['USE_LOCAL_CACHE'] = '0'
+    if args.coordination == 0:
+        os.environ['STORAGE_OR_DEFAULT'] = '0'
     else:
-        print('Use remote anna')
-        os.environ['USE_LOCAL_CACHE'] = '1'
+        print('Use default Cloudburst setting')
+        os.environ['STORAGE_OR_DEFAULT'] = '1'
 
     create_cluster(args.memory[0], args.ebs, args.function[0], args.gpu,
                    args.scheduler[0], args.routing[0], args.benchmark,
