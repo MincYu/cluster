@@ -27,7 +27,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "4G"
+            memory: "1G"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
