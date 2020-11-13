@@ -40,5 +40,8 @@ spec:
   - port: 5006
     targetPort: 5006
     name: dag-delete
+  - port: 5007
+    targetPort: 5007
+    name: func-call-queue
   selector:
     role: scheduler
