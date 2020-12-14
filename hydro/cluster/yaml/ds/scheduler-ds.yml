@@ -51,5 +51,5 @@ spec:
         - name: ANNA_REPO_BRANCH
           value: master
         - name: POLICY
-          value: round-robin
-          # value: locality
+          value: locality
+          # value: round-robin

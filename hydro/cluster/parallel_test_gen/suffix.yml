@@ -1,0 +1,17 @@
+      - name: local-kvs
+        image: cheneyyu/ephe_kvs
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 1
+            memory: "2G"
+        env:
+        - name: COORD_IPS
+          value: COORD_IPS_DUMMY
+        - name: USE_EXETERNAL_CONF
+          value: "0"
+        - name: FUNC_OR_KVS
+          value: "1"
+        volumeMounts:
+        - mountPath: /requests
+          name: ipc

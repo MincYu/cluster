@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: function-nodes
+  labels:
+    role: function
+spec:
+  selector:
+    matchLabels:
+      role: function
+  template:
+    metadata:
+      labels:
+        role: function
+    spec:
+      nodeSelector:
+        role: function
+      restartPolicy: Always
+      volumes:
+      - name: ipc
+        hostPath:
+          path: /tmp
+      hostNetwork: true
+      hostIPC: true
+      containers:
