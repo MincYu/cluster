@@ -1,0 +1,1066 @@
+Name:         function-nodes-nsfbr
+Namespace:    default
+Priority:     0
+Node:         ip-172-20-34-232.ec2.internal/172.20.34.232
+Start Time:   Tue, 15 Dec 2020 13:17:06 +0000
+Labels:       controller-revision-hash=bb659ff94
+              pod-template-generation=1
+              role=function
+Annotations:  <none>
+Status:       Running
+IP:           172.20.34.232
+IPs:
+  IP:           172.20.34.232
+Controlled By:  DaemonSet/function-nodes
+Containers:
+  function-1:
+    Container ID:   docker://95ac17ae3cfeec6acefc2fd257e69e1b03fb3c9036ce37c23736091be9deb72e
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:21:47 +0000
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Tue, 15 Dec 2020 13:19:26 +0000
+      Finished:     Tue, 15 Dec 2020 13:21:29 +0000
+    Ready:          True
+    Restart Count:  2
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           0
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-2:
+    Container ID:   docker://e02ecdd7d304a7efeceb9c26426320af8eec082cceada3ba6ea94623688e63f7
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:21:48 +0000
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Tue, 15 Dec 2020 13:19:28 +0000
+      Finished:     Tue, 15 Dec 2020 13:21:34 +0000
+    Ready:          True
+    Restart Count:  2
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           1
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-3:
+    Container ID:   docker://686764f3a453dd18ef5cfcedc74cf778ac3a3c6e6a380f8cbf0c2ef52b4d39ba
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:21:48 +0000
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Tue, 15 Dec 2020 13:19:29 +0000
+      Finished:     Tue, 15 Dec 2020 13:21:32 +0000
+    Ready:          True
+    Restart Count:  2
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           2
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-4:
+    Container ID:   docker://ac482d27153529a947170af9f39917558af1ed490a262810e53672a1ee41634d
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:43 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           3
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-5:
+    Container ID:   docker://b066dc97851f744e733b7292434480e498af2cae8cdef01104abf7f845ac53a0
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:43 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           4
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-6:
+    Container ID:   docker://3c3b44d73e2d0cec9bafbd6bc1472b9a679aaa59eb35d2ea841e7b4dfc8a4736
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:44 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           5
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-7:
+    Container ID:   docker://9b12a33d2c2517fa3714abc0cbc620d1c3480cf501f66d66acbbeda6d7b02b5a
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:44 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           6
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-8:
+    Container ID:   docker://70092288d32dddfa9b56a82560b00de7af8220b035e5a9d281f1dc61171d53e1
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:44 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           7
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-9:
+    Container ID:   docker://f369943c884311aea1590ad0ce82da79c9c6224c317c4aa2a3f21db8313d00ba
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:45 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           8
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-10:
+    Container ID:   docker://a7b856860a08ddf1361925ccf285c2a04034c58893365038d3945bd6f0c6cc00
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:45 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           9
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-11:
+    Container ID:   docker://8bfbeb53ceb81c1c906408985a865af99355b4268b64c01fcfb3a6f5b44a3a73
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:46 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           10
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-12:
+    Container ID:   docker://f94e83902c70c562fe42cd96a91c5d66cd9abaee42bb8f4117fd02c102e86dd9
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:46 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           11
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-13:
+    Container ID:   docker://371d2fd8db88ad7c34d1012c7966d16f8e121a70cc531397a28b97c59ac94855
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:46 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           12
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-14:
+    Container ID:   docker://bd92f7935121d94cca26e7d6f77a854b49e5d51dd6b926ff4b28599cb6a4e31a
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:47 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           13
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-15:
+    Container ID:   docker://2af474d81fadfc4830f474816e9d6b8918451d18ae876e02a67295bb73068520
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:47 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           14
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-16:
+    Container ID:   docker://a70ad849012af0e62e4b33a954a58ed9df9d872f7dcb04a5b5417f4982045f44
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:48 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           15
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-17:
+    Container ID:   docker://bc8ac1cb0f37ebe05858df49e5b9c9252bb53e98b3d35a7acc1893af86fbdb54
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:48 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           16
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-18:
+    Container ID:   docker://b6905036ea3af9068582d2efaa8613ff6788b3f89c31d6a6bca0204658abbda0
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:49 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           17
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-19:
+    Container ID:   docker://008d174e1a5208c6750225f6ebcfb2278fa811c9b623bbef560766faf9f44631
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:49 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           18
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-20:
+    Container ID:   docker://8565ac9f5bea28fc42e07dcbabd28760f1ae6d4c21449e597b494209f53ecd07
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:50 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           19
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-21:
+    Container ID:   docker://ac292fa01016b0ab137f6df8d64dac2781c468c77072051975e139e9a6067db6
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:50 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           20
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-22:
+    Container ID:   docker://4cb028145925c20999a8b2d8d68476eab949260061df258a131f1c579984cb5a
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:51 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           21
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-23:
+    Container ID:   docker://ac4e7f6f4c8b77e2bf0d27d85e57ac3f38afe1a7d05abbdaa9eb948d0bb9fe3c
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:51 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           22
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-24:
+    Container ID:   docker://0d8bdbabeb4cc520f76268004f748c6151ac8d355b8664dbe98cebb56140e7b5
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:52 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           23
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-25:
+    Container ID:   docker://08981885633eadc2a9439e0d8b36c449da7fdc98b33b821e86270a6221b7c9e9
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:53 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           24
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-26:
+    Container ID:   docker://1b4f7adfc9a78820b6616919ba7feaf93b6319bad57ec9039a66684313482296
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:53 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           25
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-27:
+    Container ID:   docker://5e0bb11fee02362c23e91286a825e17eb2d8f9ec2f8f32bbf3847acb30671695
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:54 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           26
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-28:
+    Container ID:   docker://69829cea608e2c7c3d69d44028db8791e2279316425a7482038c82d126681e38
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:54 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           27
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-29:
+    Container ID:   docker://20bce2a087d9096f8858599a399bdc630c0dbffe1a272f84b0913db335deb0d0
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:55 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           28
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-30:
+    Container ID:   docker://e716b92298d46f4554863b9814ac60e75464ed0b15303f494a92c1da9371873c
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:55 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           29
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-31:
+    Container ID:   docker://ce61ebe7591be2eef8cde51f9a338f008b6b6e627d60f6db27b4967072324c1b
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:56 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           30
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  function-32:
+    Container ID:   docker://39e512afeef9c9e168da244600cd845414a627aedc5cee45618cfd0435be2b95
+    Image:          cheneyyu/test_cb
+    Image ID:       docker-pullable://cheneyyu/test_cb@sha256:c7feccf0bc8a7717e733527c8291ad019b08be5aaa8a1da8a1176e073eea8776
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:18:56 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     80m
+      memory:  400M
+    Requests:
+      cpu:     80m
+      memory:  400M
+    Environment:
+      ROUTE_ADDR:          a7ea55e870aba49bba1198b75f0ba33c-123524196.us-east-1.elb.amazonaws.com
+      MGMT_IP:             100.96.1.5
+      SCHED_IPS:           172.20.51.136
+      THREAD_ID:           31
+      ROLE:                executor
+      REPO_ORG:            hydro-project
+      REPO_BRANCH:         master
+      ANNA_REPO_ORG:       hydro-project
+      ANNA_REPO_BRANCH:    master
+      STORAGE_OR_DEFAULT:  0
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+  local-kvs:
+    Container ID:   docker://7ca5da46689813c24d104cf5edfb2ffc250b12618a0cbc6567c9a013034418fc
+    Image:          cheneyyu/ephe_kvs
+    Image ID:       docker-pullable://cheneyyu/ephe_kvs@sha256:503bed121fad81e4c40d2f01dbc5292d8338bdb5ec4f833c0f10410e28499d4d
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 15 Dec 2020 13:19:05 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  2G
+    Requests:
+      cpu:     1
+      memory:  2G
+    Environment:
+      COORD_IPS:           172.20.57.6
+      USE_EXETERNAL_CONF:  0
+      FUNC_OR_KVS:         1
+    Mounts:
+      /requests from ipc (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4k4gs (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  ipc:
+    Type:          HostPath (bare host directory volume)
+    Path:          /tmp
+    HostPathType:  
+  default-token-4k4gs:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-4k4gs
+    Optional:    false
+QoS Class:       Guaranteed
+Node-Selectors:  role=function
+Tolerations:     node.kubernetes.io/disk-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/network-unavailable:NoSchedule op=Exists
+                 node.kubernetes.io/not-ready:NoExecute op=Exists
+                 node.kubernetes.io/pid-pressure:NoSchedule op=Exists
+                 node.kubernetes.io/unreachable:NoExecute op=Exists
+                 node.kubernetes.io/unschedulable:NoSchedule op=Exists
+Events:
+  Type    Reason     Age    From                                    Message
+  ----    ------     ----   ----                                    -------
+  Normal  Scheduled  6m9s   default-scheduler                       Successfully assigned default/function-nodes-nsfbr to ip-172-20-34-232.ec2.internal
+  Normal  Pulling    6m9s   kubelet, ip-172-20-34-232.ec2.internal  Pulling image "cheneyyu/test_cb"
+  Normal  Pulled     4m34s  kubelet, ip-172-20-34-232.ec2.internal  Successfully pulled image "cheneyyu/test_cb"
+  Normal  Created    4m34s  kubelet, ip-172-20-34-232.ec2.internal  Created container function-1
+  Normal  Started    4m34s  kubelet, ip-172-20-34-232.ec2.internal  Started container function-1
+  Normal  Pulling    4m34s  kubelet, ip-172-20-34-232.ec2.internal  Pulling image "cheneyyu/test_cb"
+  Normal  Pulled     4m33s  kubelet, ip-172-20-34-232.ec2.internal  Successfully pulled image "cheneyyu/test_cb"
+  Normal  Created    4m33s  kubelet, ip-172-20-34-232.ec2.internal  Created container function-2
+  Normal  Started    4m33s  kubelet, ip-172-20-34-232.ec2.internal  Started container function-2
+  Normal  Pulling    4m33s  kubelet, ip-172-20-34-232.ec2.internal  Pulling image "cheneyyu/test_cb"
+  Normal  Pulled     4m33s  kubelet, ip-172-20-34-232.ec2.internal  Successfully pulled image "cheneyyu/test_cb"
+  Normal  Created    4m33s  kubelet, ip-172-20-34-232.ec2.internal  Created container function-3
+  Normal  Started    4m33s  kubelet, ip-172-20-34-232.ec2.internal  Started container function-3
+  Normal  Pulling    4m33s  kubelet, ip-172-20-34-232.ec2.internal  Pulling image "cheneyyu/test_cb"
+  Normal  Pulled     4m32s  kubelet, ip-172-20-34-232.ec2.internal  Successfully pulled image "cheneyyu/test_cb"
+  Normal  Created    4m32s  kubelet, ip-172-20-34-232.ec2.internal  Created container function-4
+  Normal  Started    4m32s  kubelet, ip-172-20-34-232.ec2.internal  Started container function-4
+  Normal  Pulling    4m32s  kubelet, ip-172-20-34-232.ec2.internal  Pulling image "cheneyyu/test_cb"
+  Normal  Pulled     4m32s  kubelet, ip-172-20-34-232.ec2.internal  Successfully pulled image "cheneyyu/test_cb"
+  Normal  Created    4m32s  kubelet, ip-172-20-34-232.ec2.internal  Created container function-5
+  Normal  Started    4m32s  kubelet, ip-172-20-34-232.ec2.internal  Started container function-5
+  Normal  Pulling    4m32s  kubelet, ip-172-20-34-232.ec2.internal  Pulling image "cheneyyu/test_cb"
+  Normal  Pulled     4m32s  kubelet, ip-172-20-34-232.ec2.internal  Successfully pulled image "cheneyyu/test_cb"
+  Normal  Created    4m31s  kubelet, ip-172-20-34-232.ec2.internal  Created container function-6
+  Normal  Started    4m31s  kubelet, ip-172-20-34-232.ec2.internal  Started container function-6
+  Normal  Pulling    4m31s  kubelet, ip-172-20-34-232.ec2.internal  Pulling image "cheneyyu/test_cb"

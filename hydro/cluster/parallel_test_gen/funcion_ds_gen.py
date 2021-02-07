@@ -27,8 +27,8 @@ for i in range(num):
       - name: function-'''+ str(i + 1) + '''
         resources:
           limits:
-            cpu: 40m
-            memory: "200M"
+            cpu: 80m
+            memory: "400M"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
