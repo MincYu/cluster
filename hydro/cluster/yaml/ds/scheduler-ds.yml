@@ -33,7 +33,7 @@ spec:
       hostIPC: true
       containers:
       - name: scheduler-container
-        image: cheneyyu/test_cb
+        image: cheneyyu/test_cb_coord
         imagePullPolicy: Always
         env:
         - name: ROUTE_ADDR

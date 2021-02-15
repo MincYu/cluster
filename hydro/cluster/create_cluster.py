@@ -136,11 +136,11 @@ def create_cluster(mem_count, ebs_count, func_count, gpu_count, sched_count,
     # When using coordination-supported storage, we need to additionally setup coordinator
     if os.environ['STORAGE_OR_DEFAULT'] == '0':
         # TODO support more coordinator
-        coor_count = 1
-        print('Creating %d coordinator nodes...' % (coor_count))
-        batch_add_nodes(client, apps_client, cfile, ['coordinator'], [coor_count], BATCH_SIZE, prefix)
-        coord_ips = util.get_pod_ips(client, 'role=coordinator')
-
+        # coor_count = 1
+        # print('Creating %d coordinator nodes...' % (coor_count))
+        # batch_add_nodes(client, apps_client, cfile, ['coordinator'], [coor_count], BATCH_SIZE, prefix)
+        
+        coord_ips = util.get_pod_ips(client, 'role=scheduler')
         print(f'Coordinator ips: {coord_ips}')
 
     print('Adding %d function, %d GPU nodes...' % (func_count, gpu_count))

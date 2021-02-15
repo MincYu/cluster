@@ -64,7 +64,7 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
 
     # In storage mode, we also need coordinator ip
     if os.environ['STORAGE_OR_DEFAULT'] == '0':
-        coord_ips = util.get_pod_ips(client, 'role=coordinator')
+        coord_ips = util.get_pod_ips(client, 'role=scheduler')
         coord_str = ' '.join(coord_ips)
 
     mon_str = ' '.join(util.get_pod_ips(client, 'role=monitoring'))
