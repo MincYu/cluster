@@ -44,5 +44,7 @@ spec:
       value: "1"
     - name: STORAGE_OR_DEFAULT
       value: STORAGE_OR_DEFAULT_DUMMY
+    - name: THROUGHPUT_MODE
+      value: "1"
   nodeSelector:
     role: general

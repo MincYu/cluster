@@ -27,7 +27,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "2G"
+            memory: "1G"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
@@ -58,7 +58,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: "2G"
+            memory: "1G"
         image: cheneyyu/test_cb
         imagePullPolicy: Always
         env:
@@ -120,7 +120,7 @@ spec:
         resources:
           limits:
             cpu: 1
-            memory: "3G"
+            memory: "2G"
         env:
         - name: COORD_IPS
           value: COORD_IPS_DUMMY

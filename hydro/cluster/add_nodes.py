@@ -91,7 +91,8 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
             for container in yml['spec']['template']['spec']['containers']:
                 env = container['env']
 
-                util.replace_yaml_val(env, 'COORD_IPS', coord_str)
+                if os.environ['STORAGE_OR_DEFAULT'] == '0':
+                    util.replace_yaml_val(env, 'COORD_IPS', coord_str)
                 util.replace_yaml_val(env, 'ROUTING_IPS', route_str)
                 util.replace_yaml_val(env, 'ROUTE_ADDR', route_addr)
                 util.replace_yaml_val(env, 'SCHED_IPS', sched_str)

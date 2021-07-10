@@ -69,4 +69,11 @@ git submodule update
 cd $HYDRO_HOME/cluster
 export PYTHONPATH=$PYTHONPATH:$(pwd)
 python3.6 hydro/management/k8s_server.py &
-python3.6 hydro/management/management_server.py $IP
+
+while true; do
+  python3.6 hydro/management/management_server.py $IP $THROUGHPUT_MODE
+
+  if [[ "$?" = "1" ]]; then
+    echo "Get error. Restarting"
+  fi
+done

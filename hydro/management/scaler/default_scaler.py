@@ -22,6 +22,8 @@ from hydro.management.util import (
     get_executor_unpin_address,
     send_message
 )
+from hydro.shared.proto.internal_pb2 import CPU, GPU
+
 from hydro.management.scaler.base_scaler import BaseScaler
 from hydro.shared.proto.internal_pb2 import PinFunction
 from hydro.shared.proto.cloudburst_pb2 import GenericResponse
@@ -35,6 +37,48 @@ class DefaultScaler(BaseScaler):
         self.remove_socket = remove_socket
         self.pin_accept_socket = pin_accept_socket
         self.enable_scaling = os.environ['ENABLE_SCALING'] == '0'
+    
+    def try_replicate_to_all(self, fname, executor_statuses):
+        msg = PinFunction()
+        msg.name = fname
+        msg.response_address = self.ip 
+
+        existing_replicas = set()
+        cpu_executors = set()
+        for key in executor_statuses:
+            status = executor_statuses[key]
+            if status.type == CPU:
+                cpu_executors.add(key)
+            for func in status.functions:
+                if func == fname:
+                    existing_replicas.add(key)
+        other_nodes = cpu_executors.difference(existing_replicas)
+
+        existing_size = len(existing_replicas)
+        new_size = len(other_nodes)
+        success_count = 0
+        for node in other_nodes:
+            ip, tid = node
+            send_message(self.context, msg.SerializeToString(),
+                         get_executor_pin_address(ip, tid))
+
+            response = GenericResponse()
+            try:
+                response.ParseFromString(self.pin_accept_socket.recv())
+            except zmq.ZMQError:
+                logging.error('Pin operation to %s:%d timed out for %s.' %
+                              (ip, tid, fname))
+                continue
+
+            if response.success:
+                logging.info('Pin operation to %s:%d for %s successful.' %
+                              (ip, tid, fname))
+                success_count += 1
+            else:
+                # The pin operation was rejected, remove node and try again.
+                logging.error('Node %s:%d rejected pin for %s.'
+                              % (ip, tid, fname))
+        logging.info('All replicas %s. existing: %d, new: %d, success: %d' % (fname, existing_size, new_size, success_count))
 
     def replicate_function(self, fname, num_replicas, function_locations,
                            cpu_executors, gpu_executors):

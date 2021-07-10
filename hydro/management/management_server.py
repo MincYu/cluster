@@ -44,7 +44,7 @@ logging.basicConfig(filename='log_management.txt', level=logging.INFO,
                     format='%(asctime)s %(message)s')
 
 
-def run(self_ip):
+def run(self_ip, is_throughput_mode):
     context = zmq.Context(1)
 
     pusher_cache = SocketCache(context, zmq.PUSH)
@@ -271,10 +271,13 @@ def run(self_ip):
 
             # Invoke the configured policy to check system load and respond
             # appropriately.
-            policy.replica_policy(function_frequencies, function_runtimes,
-                                  dag_runtimes, executor_statuses,
-                                  arrival_times)
-            policy.executor_policy(executor_statuses, departing_executors)
+            if is_throughput_mode != '1':
+                policy.replica_policy(function_frequencies, function_runtimes,
+                                    dag_runtimes, executor_statuses,
+                                    arrival_times)
+                policy.executor_policy(executor_statuses, departing_executors)
+            else:
+                scaler.try_replicate_to_all('empty', executor_statuses)
 
             # Clears all metadata that was passed in for this epoch.
             function_runtimes.clear()
@@ -382,4 +385,4 @@ if __name__ == '__main__':
                                           '.kube/config')):
         pass
 
-    run(sys.argv[1])
+    run(sys.argv[1], sys.argv[2])

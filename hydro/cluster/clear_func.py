@@ -15,7 +15,7 @@ pool = ThreadPoolExecutor(max_workers=1000)
 futures = []
 for pname, cname in pods:
     if cname.startswith('function'):
-        cmd = f'kubectl exec -it {pname} --container {cname} -- pkill python'
+        cmd = f'kubectl exec -it {pname} --container {cname} -- pkill -9 python'
         futures.append(pool.submit(os.system, cmd))
 
 results = [fu.result() for fu in futures]

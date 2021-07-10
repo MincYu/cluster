@@ -209,23 +209,23 @@ class DefaultHydroPolicy(BaseHydroPolicy):
                                                    self.function_locations,
                                                    cpu_executors, gpu_executors)
 
-        # We only decide to kill nodes if they are underutilized and if there
-        # are at least 5 executors in the system -- we never scale down past
-        # that.
-        if avg_utilization < self.min_utilization and num_nodes > 5:
-            ip = random.choice(list(executor_statuses.values())).ip
-            logging.info(('Average utilization is %.4f, and there are %d '
-                          + 'executors. Removing IP %s.') %
-                         (avg_utilization, len(executor_statuses), ip))
+        # # We only decide to kill nodes if they are underutilized and if there
+        # # are at least 5 executors in the system -- we never scale down past
+        # # that.
+        # if avg_utilization < self.min_utilization and num_nodes > 5:
+        #     ip = random.choice(list(executor_statuses.values())).ip
+        #     logging.info(('Average utilization is %.4f, and there are %d '
+        #                   + 'executors. Removing IP %s.') %
+        #                  (avg_utilization, len(executor_statuses), ip))
 
-            for tid in range(NUM_EXEC_THREADS):
-                send_message(self.scaler.context, '',
-                             get_executor_depart_address(ip, tid))
+        #     for tid in range(NUM_EXEC_THREADS):
+        #         send_message(self.scaler.context, '',
+        #                      get_executor_depart_address(ip, tid))
 
-                if (ip, tid) in executor_statuses:
-                    del executor_statuses[(ip, tid)]
+        #         if (ip, tid) in executor_statuses:
+        #             del executor_statuses[(ip, tid)]
 
-            departing_executors[ip] = NUM_EXEC_THREADS
+        #     departing_executors[ip] = NUM_EXEC_THREADS
 
-            # start the grace period after removing nodes
-            self.grace_start = time.time()
+        #     # start the grace period after removing nodes
+        #     self.grace_start = time.time()
