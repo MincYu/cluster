@@ -55,6 +55,10 @@ class DefaultScaler(BaseScaler):
         other_nodes = cpu_executors.difference(existing_replicas)
 
         existing_size = len(existing_replicas)
+        if existing_size == 0:
+            logging.info('All replicas %s no registered, return.' % (fname))
+            return
+
         new_size = len(other_nodes)
         success_count = 0
         for node in other_nodes:
